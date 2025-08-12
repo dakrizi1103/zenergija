@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <title>Dinamo pobijedio u derbiju — Z-energija</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/tailwind.css">
+</head>
+<body class="bg-white text-slate-900">
+  <!-- HEADER -->
+  <header>…</header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">Dinamo pobijedio u derbiju</h1>
+    <p class="text-sm text-slate-500 mb-4">Objavljeno: 12. kolovoza 2025 • Kategorije: Nogomet, Glavna vijest</p>
+    <img src="/images/dinamo.jpg" alt="Dinamo" class="mb-6 rounded-xl">
+    <p class="mb-4">Utakmica između Dinama i Hajduka završila je 2:1 za zagrebačku momčad...</p>
+    <p>Ostatak teksta ide ovdje...</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>…</footer>
+</body>
+</html>
