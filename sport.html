@@ -1,62 +1,76 @@
 <!doctype html>
-<html lang="hr">
+<html lang="hr" class="h-full scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Z-energija — Sport</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card{transition:transform .18s ease, box-shadow .18s ease}
+    .card:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.08)}
+    .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+    .no-scrollbar::-webkit-scrollbar{display:none}
+    @media (max-width:1023px){ .skyscraper{display:none} }
+  </style>
 </head>
-<body class="bg-white text-slate-900">
+<body class="bg-white text-slate-900 antialiased overflow-x-hidden">
   <!-- Header -->
-  <header class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-      <a href="/" class="flex items-center">
-        <img src="images/logo.png" alt="Z-energija" class="h-8">
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 grid grid-cols-3 items-center">
+      <a href="/index.html" class="flex items-center" aria-label="Z-energija početna">
+        <img src="/images/logo.png" alt="Z-energija" class="h-8 w-auto">
       </a>
-      <nav>
-        <ul class="flex gap-4 font-semibold">
-          <li><a href="/index.html" class="border px-3 py-1 rounded-full border-black text-black hover:bg-black hover:text-white">Home</a></li>
-          <li><a href="/sport.html" class="border px-3 py-1 rounded-full border-green-700 text-green-700 hover:bg-green-700 hover:text-white">Sport</a></li>
-          <li><a href="/zdravlje.html" class="border px-3 py-1 rounded-full border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white">Zdravlje</a></li>
-          <li><a href="/ostalo.html" class="border px-3 py-1 rounded-full border-slate-500 text-slate-600 hover:bg-slate-600 hover:text-white">Ostalo</a></li>
+      <nav class="justify-self-center w-full max-w-xl">
+        <ul class="flex items-center gap-2 text-sm font-semibold overflow-x-auto sm:overflow-visible no-scrollbar whitespace-nowrap justify-center">
+          <li><a href="/index.html"   class="inline-block rounded-full border px-3.5 py-1.5 border-black text-black hover:bg-black hover:text-white">Home</a></li>
+          <li><a href="/sport.html"   class="inline-block rounded-full border px-3.5 py-1.5 border-green-700 text-green-700 hover:bg-green-700 hover:text-white">Sport</a></li>
+          <li><a href="/zdravlje.html"class="inline-block rounded-full border px-3.5 py-1.5 border-blue-700  text-blue-700  hover:bg-blue-700  hover:text-white">Zdravlje</a></li>
+          <li><a href="/ostalo.html"  class="inline-block rounded-full border px-3.5 py-1.5 border-slate-500 text-slate-600 hover:bg-slate-600 hover:text-white">Ostalo</a></li>
         </ul>
       </nav>
+      <div></div>
     </div>
-    <!-- Podnavigacija sporta -->
+    <!-- Podnavigacija (Sport) -->
     <div class="bg-green-50 border-t border-b border-green-200">
-      <div class="max-w-7xl mx-auto px-4">
-        <ul class="flex gap-6 py-2 text-green-700 font-medium">
-          <li><a href="#nogomet" class="hover:underline">Nogomet</a></li>
-          <li><a href="#transferi" class="hover:underline">Transferi</a></li>
-          <li><a href="#kosarka" class="hover:underline">Košarka</a></li>
-          <li><a href="#tenis" class="hover:underline">Tenis</a></li>
-          <li><a href="#ostalo" class="hover:underline">Ostalo</a></li>
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <ul class="flex gap-3 sm:gap-6 py-2 text-green-700 font-medium overflow-x-auto no-scrollbar whitespace-nowrap">
+          <li><a class="hover:underline" href="/nogomet.html">Nogomet</a></li>
+          <li><a class="hover:underline" href="/transferi.html">Transferi</a></li>
+          <li><a class="hover:underline" href="/kosarka.html">Košarka</a></li>
+          <li><a class="hover:underline" href="/tenis.html">Tenis</a></li>
+          <li><a class="hover:underline" href="/sport-ostalo.html">Ostalo</a></li>
         </ul>
       </div>
     </div>
   </header>
 
   <!-- Sadržaj -->
-  <main class="max-w-7xl mx-auto px-4 py-6">
-    <section id="nogomet">
-      <h2 class="text-2xl font-bold mb-4">Nogomet</h2>
-      <p>Ovdje idu vijesti i članci o nogometu...</p>
-    </section>
-    <section id="transferi" class="mt-10">
-      <h2 class="text-2xl font-bold mb-4">Transferi</h2>
-      <p>Ovdje idu vijesti o transferima...</p>
-    </section>
-    <section id="kosarka" class="mt-10">
-      <h2 class="text-2xl font-bold mb-4">Košarka</h2>
-      <p>Ovdje idu vijesti o košarci...</p>
-    </section>
-    <section id="tenis" class="mt-10">
-      <h2 class="text-2xl font-bold mb-4">Tenis</h2>
-      <p>Ovdje idu vijesti o tenisu...</p>
-    </section>
-    <section id="ostalo" class="mt-10">
-      <h2 class="text-2xl font-bold mb-4">Ostalo</h2>
-      <p>Ovdje idu vijesti iz ostalih sportova...</p>
+  <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6">
+    <h1 class="text-3xl font-extrabold mb-6 text-green-700">Sport</h1>
+
+    <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="card border border-slate-200 rounded-2xl overflow-hidden bg-white">
+        <a href="/nogomet.html"><img src="https://images.unsplash.com/photo-1508085462391-a77767e6f82f?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full object-cover aspect-[16/9]"></a>
+        <div class="p-4">
+          <span class="text-xs font-semibold px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">Nogomet</span>
+          <h3 class="mt-2 font-bold text-lg"><a href="/nogomet.html" class="hover:underline">Derbi vikenda: analiza</a></h3>
+        </div>
+      </article>
+
+      <article class="card border border-slate-200 rounded-2xl overflow-hidden bg-white">
+        <a href="/transferi.html"><img src="https://images.unsplash.com/photo-1478033394151-c931d5a4bdd6?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full object-cover aspect-[16/9]"></a>
+        <div class="p-4">
+          <span class="text-xs font-semibold px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">Transferi</span>
+          <h3 class="mt-2 font-bold text-lg"><a href="/transferi.html" class="hover:underline">Ljetni prijelazni rok</a></h3>
+        </div>
+      </article>
+
+      <article class="card border border-slate-200 rounded-2xl overflow-hidden bg-white">
+        <a href="/kosarka.html"><img src="https://images.unsplash.com/photo-1519861155730-9d02b0c1a27b?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full object-cover aspect-[16/9]"></a>
+        <div class="p-4">
+          <span class="text-xs font-semibold px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">Košarka</span>
+          <h3 class="mt-2 font-bold text-lg"><a href="/kosarka.html" class="hover:underline">Tjedni pregled formi</a></h3>
+        </div>
+      </article>
     </section>
   </main>
 </body>
