@@ -23,21 +23,10 @@
   </section>
 </main>
 <script>
-  /**
-   * UNIVERZALNA SKRIPTA ZA VIJESTI (v1)
-   * Podaci: /vijesti.json (lista objekata)
-   * Očekivani ključevi: title (string), text (string), image (url), link (url), tag (string, npr. "Nogomet")
-   * Filtriranje po tagovima: postavi CONFIG.TAGS = ["Nogomet"] ili više tagova; ostavi [] ili null za sve vijesti.
-   */
+const CONFIG = { TAGS: ["Tenis"], LIMIT: 12, SORT: "desc" };
 
-  // --- 3 stvari koje MIJENJAŠ po stranici (ili ostavi default) ---
-  const CONFIG = { TAGS: ["Tenis"], LIMIT: 12, SORT: "desc" };
-  // --- kraj podesivog dijela ---
-
-  // Helper: normaliziraj tag (trim + case-sensitive ostaje, ali makni višak razmaka)
   const norm = s => (s || "").toString().trim();
 
-  // Učitaj JSON s cache-busterom
   fetch('/vijesti.json?ts=' + Date.now())
     .then(res => {
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -48,22 +37,19 @@
       if (!grid) return;
 
       const all = Array.isArray(data) ? data : (data ? [data] : []);
-
-      // Filtriranje po TAGS (ako je zadano)
       let filtered = all;
+
       if (CONFIG.TAGS && CONFIG.TAGS.length) {
         const allow = CONFIG.TAGS.map(norm);
-        filtered = all.filter(x => allow.includes(norm(x.tag)));
+        filtered = all.filter(x => Array.isArray(x.tags) && x.tags.some(tag => allow.includes(norm(tag))));
       }
 
-      // Sortiranje (ako postoji date u ISO obliku ili "YYYY-MM-DD")
       filtered.sort((a, b) => {
-        const da = Date.parse(a.date || a.updated || a.created || 0) || 0;
-        const db = Date.parse(b.date || b.updated || b.created || 0) || 0;
+        const da = Date.parse(a.date || 0) || 0;
+        const db = Date.parse(b.date || 0) || 0;
         return CONFIG.SORT === 'asc' ? da - db : db - da;
       });
 
-      // Limit
       if (CONFIG.LIMIT && filtered.length > CONFIG.LIMIT) {
         filtered = filtered.slice(0, CONFIG.LIMIT);
       }
@@ -73,31 +59,23 @@
         return;
       }
 
-      // Render kartica
-      grid.innerHTML = filtered.map(item => {
-        const title = item.title || 'Bez naslova';
-        const text  = item.text  || '';
-        const img   = item.image || 'https://picsum.photos/800/450?blur=1';
-        const link  = item.link  || '#';
-        const tag   = item.tag   || '';
-        return `
-          <article class="card border border-slate-200 rounded-2xl overflow-hidden bg-white">
-            <a href="${link}" class="block">
-              <img loading="lazy" src="${img}" alt="${title}" class="w-full object-cover aspect-[16/9]">
-            </a>
-            <div class="p-4">
-              ${tag ? `<span class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">${tag}</span>` : ''}
-              <h3 class="mt-2 font-bold text-lg leading-snug"><a href="${link}" class="hover:underline">${title}</a></h3>
-              ${text ? `<p class="mt-1 text-sm text-slate-600">${text}</p>` : ''}
-            </div>
-          </article>
-        `;
-      }).join('');
+      grid.innerHTML = filtered.map(item => `
+        <article class="card border border-slate-200 rounded-2xl overflow-hidden bg-white">
+          <a href="${item.link}" class="block">
+            <img loading="lazy" src="${item.image}" alt="${item.title}" class="w-full object-cover aspect-[16/9]">
+          </a>
+          <div class="p-4">
+            ${item.tags && item.tags.length ? `<span class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">${item.tags.join(', ')}</span>` : ''}
+            <h3 class="mt-2 font-bold text-lg leading-snug"><a href="${item.link}" class="hover:underline">${item.title}</a></h3>
+            ${item.text ? `<p class="mt-1 text-sm text-slate-600">${item.text}</p>` : ''}
+          </div>
+        </article>
+      `).join('');
     })
     .catch(err => {
       console.error('Greška pri učitavanju vijesti:', err);
       const grid = document.getElementById('news-grid');
-      if (grid) grid.innerHTML = '<p class="text-red-500">Greška pri učitavanju vijesti. Provjeri da postoji /vijesti.json i da je ispravan JSON.</p>';
+      if (grid) grid.innerHTML = '<p class="text-red-500">Greška pri učitavanju vijesti.</p>';
     });
 </script>
 
