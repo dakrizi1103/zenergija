@@ -1,57 +1,7 @@
-<!doctype html>
-<html lang="hr">
-<head>
-  <meta charset="utf-8">
-  <title>Generator vijesti — Z-energija</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 10px; }
-    label { display: block; margin-top: 10px; font-weight: bold; }
-    input, textarea, select { width: 100%; padding: 8px; margin-top: 4px; }
-    textarea { resize: vertical; }
-    button { margin-top: 15px; padding: 10px 15px; background: #0d6efd; color: white; border: none; cursor: pointer; }
-    button:hover { background: #0b5ed7; }
-    pre { background: #f8f9fa; padding: 10px; border: 1px solid #ccc; overflow-x: auto; }
-  </style>
-</head>
-<body>
-  <h1>Generator vijesti — Z-energija</h1>
-  <p>Unesi podatke o vijesti i klikni "Generiraj JSON". Dobiveni JSON zalijepi u <code>vijesti.json</code>.</p>
-  <label>Naslov</label>
-  <input type="text" id="title">
-  <label>Tekst (kratki opis)</label>
-  <textarea id="text" rows="3"></textarea>
-  <label>URL slike</label>
-  <input type="text" id="image" placeholder="https://...">
-  <label>Tag (npr. Nogomet, Prehrana, Wellness)</label>
-  <input type="text" id="tag">
-  <label>Link na stranicu članka</label>
-  <input type="text" id="link" placeholder="/nogomet.html">
-  <button onclick="generateJSON()">Generiraj JSON</button>
-  <h2>Rezultat:</h2>
-  <pre id="output">Ovjde će se pojaviti JSON...</pre>
-  <script>
-    function generateJSON() {
-      const news = {
-
-        title: document.getElementById('title').value.trim(),
-
-        text: document.getElementById('text').value.trim(),
-
-        image: document.getElementById('image').value.trim(),
-
-        tag: document.getElementById('tag').value.trim(),
-
-        link: document.getElementById('link').value.trim()
-
-      };
-
-      document.getElementById('output').textContent = JSON.stringify(news, null, 2);
-
-    }
-
-  </script>
-
-</body>
-
-</html>
+{
+  "title": "Varaždin bijesan na Sudačku komisiju!",
+  "text": "VARAŽDIN je objavio opširno priopćenje u kojem je žestoko kritizirao suce i Komisiju nogometnih sudaca Hrvatskog nogometnog saveza nakon što je objavljena sudačka analiza 2. kola SuperSport HNL-a, u kojem je Varaždin izgubio 3:1 od Slaven Belupa.\n\nIz Varaždina smatraju da je sudac Duje Strukan neopravdano dodijelio crveni karton njihovom igraču Antoniju Boršiću u 21. minuti, a pritom su se i obrušili na komunikaciju s VAR sucima Ivanom Bebekom i Antom Čuljkom. Također, Varaždin smatra da je gol Slaven Belupa za 1:1 postignut neregularno, ali tu situaciju u VAR sobi nisu provjeravali niti se na nju osvrnula Sudačka komisija.\n\nU nastavku prenosimo priopćenje Varaždina.\n\nPriopćenje Varaždina:\nNakon što je Komisija nogometnih sudaca Hrvatskog nogometnog saveza službeno objavila sudačku analizu 2. kola SuperSport HNL-a, NK Varaždin ovim putem javno reagira na navedeni tekst i obrazloženje, kao i na činjenicu da prvi, ujedno i izjednačujući pogodak domaće momčadi, iako postignut iz nedopuštene situacije, uopće nije obrađen.\nIsključenje igrača Varaždina s brojem 25, nakon starta na loptu, očito je i nedvojbeno promijenilo tijek utakmice. Komisija sudaca obrazložila je odluku na sljedeći način:\n\n\"Dok su dva suparnička igrača bili u borbi za loptu, domaći branič br. 6 je ispravnim klizećim startom odigrao loptu, dok je gostujući igrač br. 25 kod uklizavanja velikom brzinom, zakašnjelim startom, udario braniča s oba koljena u glavu, a pri čemu je vidljiv jasan pokret.\"\n\nOvakvo obrazloženje kategorički odbacujemo. Snimka jasno pokazuje da je u klizeći start prvi ušao igrač Varaždina (#25), a tek potom igrač domaće momčadi (#6). Kontakt je uslijedio bez želje i namjere, pri čemu je naš igrač, shvativši da će protivnik prvi stići do lopte, povukao noge prema tijelu kako bi izbjegao ili barem umanjio kontakt.\n\nNa snimci nije vidljivo udaranje u glavu, a jedini \"jasan pokret\" jest povlačenje nogu unatrag. Isto tako, jasno je i očigledno da igrač Varaždina u klizeći start ulazi potkoljenicama a ne otvorenim đonom isključivo kako bi došao do lopte. Jedino s čime se slažemo iz službenog obrazloženja jest tvrdnja da se sve odvijalo \"velikom brzinom\".",
+  "image": "https://ip.index.hr/remote/bucket.index.hr/b/index/702dacb1-ec04-4ccc-bbf5-f5c121c55467.jpg",
+  "tag": "Nogomet",
+  "link": "/nogomet.html"
+}
