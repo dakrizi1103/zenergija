@@ -6,5 +6,13 @@
     "tags": ["Glavna vijest", "Nogomet"],
     "link": "/clanci/dinamo-derbi.html",
     "date": "2025-08-12"
+  },
+  {
+    "title": "10 savjeta za bolji san",
+    "text": "Jednostavni savjeti koji će poboljšati kvalitetu sna.",
+    "image": "/images/san.jpg",
+    "tags": ["Zdravlje", "Wellness"],
+    "link": "/clanci/bolji-san.html",
+    "date": "2025-08-10"
   }
 ]
