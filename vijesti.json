@@ -1,1 +1,15 @@
+[
+  {
+    "title": "Dinamo doveo novog napadača",
+    "text": "Dinamo Zagreb je potpisao ugovor s mladim napadačem iz Brazila...",
+    "image": "images/dinamo.jpg",
+    "link": "/nogomet.html"
+  },
+  {
+    "title": "5 savjeta za zdravu prehranu",
+    "text": "Evo nekoliko jednostavnih savjeta kako poboljšati svoju prehranu...",
+    "image": "images/prehrana.jpg",
+    "link": "/prehrana.html"
+  }
+]
 
