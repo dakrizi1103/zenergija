@@ -12,50 +12,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: { extend: {
-        fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
-        colors: { brand: { sport: '#1f7e4c', zdravlje: '#1f6feb' } }
-      }}
-    };
-  </script>
-<style>
-  .card{transition:transform .18s ease, box-shadow .18s ease}
-  .card:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.08)}
-  .ad-box{min-height:600px}
-  @media (max-width: 1023px){ .skyscraper{display:none} }
-
-  /* sakrij horizontalnu traku, ali zadrži swipe */
-  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  .no-scrollbar::-webkit-scrollbar { display: none; }
-</style>
-
+  <style>
+    .card{transition:transform .18s ease, box-shadow .18s ease}
+    .card:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.08)}
+    .ad-box{min-height:600px}
+    @media (max-width: 1023px){ .skyscraper{display:none} }
+  </style>
 </head>
 <body class="min-h-full bg-white text-slate-900 antialiased overflow-x-hidden">
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 grid grid-cols-3 items-center">
-      <!-- Logo lijevo -->
-      <a href="/index.html" class="flex items-center" aria-label="Z-energija početna">
-        <img src="/images/logo.png" alt="Z-energija" class="h-8 w-auto"/>
-      </a>
+  <!-- HEADER: logo gore; ispod njega wrap nav -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
+      <div class="flex flex-col items-center gap-3">
+        <!-- Logo -->
+        <a href="/index.html" class="inline-flex items-center" aria-label="Z-energija početna">
+          <img src="/images/logo.png" alt="Z-energija" class="h-9 w-auto"/>
+        </a>
 
-      <!-- Nav centrirano, scrollabilno na mobitelu -->
-      <nav class="justify-self-center w-full max-w-xl">
-        <ul class="flex items-center gap-2 text-sm font-semibold overflow-x-auto whitespace-nowrap no-scrollbar justify-center">
-          <li><a href="/index.html" class="inline-block rounded-full border px-3.5 py-1.5 border-black text-black hover:bg-black hover:text-white">Home</a></li>
-          <li><a href="/sport.html" class="inline-block rounded-full border px-3.5 py-1.5 border-[color:var(--sport,#1f7e4c)] text-[color:var(--sport,#1f7e4c)] hover:bg-[color:var(--sport,#1f7e4c)] hover:text-white" style="--sport:#1f7e4c">Sport</a></li>
-          <li><a href="/zdravlje.html" class="inline-block rounded-full border px-3.5 py-1.5 border-[color:var(--zdravlje,#1f6feb)] text-[color:var(--zdravlje,#1f6feb)] hover:bg-[color:var(--zdravlje,#1f6feb)] hover:text-white" style="--zdravlje:#1f6feb">Zdravlje</a></li>
-          <li><a href="/ostalo.html" class="inline-block rounded-full border px-3.5 py-1.5 border-slate-500 text-slate-600 hover:bg-slate-600 hover:text-white">Ostalo</a></li>
-          <ul class="flex items-center gap-2 text-sm font-semibold
-           overflow-x-auto sm:overflow-visible no-scrollbar
-           whitespace-nowrap justify-center">
-        </ul>
-      </nav>
-
-      <div><!-- prazan desni stupac radi balansa --></div>
+        <!-- Glavna navigacija: horizontalna, wrap ako nema mjesta -->
+        <nav class="w-full">
+          <ul class="flex flex-wrap gap-2 justify-center font-semibold text-sm">
+            <li><a href="/index.html"   class="inline-block rounded-full border px-3.5 py-1.5 border-black text-black hover:bg-black hover:text-white">Home</a></li>
+            <li><a href="/sport.html"   class="inline-block rounded-full border px-3.5 py-1.5 border-green-700 text-green-700 hover:bg-green-700 hover:text-white">Sport</a></li>
+            <li><a href="/zdravlje.html"class="inline-block rounded-full border px-3.5 py-1.5 border-blue-700  text-blue-700  hover:bg-blue-700  hover:text-white">Zdravlje</a></li>
+            <li><a href="/ostalo.html"  class="inline-block rounded-full border px-3.5 py-1.5 border-slate-500 text-slate-600 hover:bg-slate-600 hover:text-white">Ostalo</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -63,7 +47,7 @@
   <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-6 lg:grid lg:grid-cols-[200px_minmax(0,1fr)_200px] lg:gap-6">
     <!-- Lijevi oglas -->
     <aside class="skyscraper lg:block">
-      <div class="sticky top-20 border border-slate-200 rounded-xl ad-box overflow-hidden">
+      <div class="sticky top-24 border border-slate-200 rounded-xl ad-box overflow-hidden">
         <a id="adLeft" href="#" target="_blank" rel="noopener" class="block">
           <img id="adLeftImg" src="https://picsum.photos/200/600?random=11" alt="Oglas" class="w-full h-auto" loading="lazy"/>
         </a>
@@ -79,8 +63,8 @@
             <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Sport i zdravlje na jednom mjestu</h1>
             <p class="mt-3 text-slate-600 text-lg">Brze vijesti, provjereni savjeti i praktični vodiči za aktivan život.</p>
             <div class="mt-5 flex gap-3">
-              <a href="/sport.html" class="rounded-2xl bg-brand-sport px-5 py-3 text-white font-semibold hover:opacity-90">Pogledaj Sport</a>
-              <a href="/zdravlje.html" class="rounded-2xl border border-brand-zdravlje px-5 py-3 font-semibold text-brand-zdravlje hover:bg-brand-zdravlje hover:text-white">Idi na Zdravlje</a>
+              <a href="/sport.html" class="rounded-2xl bg-green-700 px-5 py-3 text-white font-semibold hover:opacity-90">Pogledaj Sport</a>
+              <a href="/zdravlje.html" class="rounded-2xl border border-blue-700 px-5 py-3 font-semibold text-blue-700 hover:bg-blue-700 hover:text-white">Idi na Zdravlje</a>
             </div>
           </div>
           <div class="rounded-3xl overflow-hidden ring-1 ring-slate-200">
@@ -125,7 +109,7 @@
         </div>
       </section>
 
-      <!-- Najnovije vijesti (JSON -> grid) -->
+      <!-- Najnovije vijesti – puniš NEWS niz -->
       <section class="pb-6">
         <div class="flex items-center justify-between mb-4">
           <h2 class="text-2xl md:text-3xl font-bold">Najnovije vijesti</h2>
@@ -134,12 +118,12 @@
         <div id="news-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
       </section>
 
-      <!-- Brzi linkovi na podkategorije -->
+      <!-- Brzi linkovi -->
       <section class="py-6 border-t border-slate-200">
         <h3 class="text-xl font-bold mb-3">Brzi linkovi</h3>
         <div class="grid gap-2 sm:grid-cols-3">
           <div>
-            <p class="text-sm font-semibold text-brand-sport mb-2">Sport</p>
+            <p class="text-sm font-semibold text-green-700 mb-2">Sport</p>
             <ul class="text-sm space-y-1">
               <li><a class="hover:underline" href="/nogomet.html">Nogomet</a></li>
               <li><a class="hover:underline" href="/transferi.html">Transferi</a></li>
@@ -149,7 +133,7 @@
             </ul>
           </div>
           <div>
-            <p class="text-sm font-semibold text-brand-zdravlje mb-2">Zdravlje</p>
+            <p class="text-sm font-semibold text-blue-700 mb-2">Zdravlje</p>
             <ul class="text-sm space-y-1">
               <li><a class="hover:underline" href="/prehrana.html">Prehrana</a></li>
               <li><a class="hover:underline" href="/fitness.html">Fitness</a></li>
@@ -174,7 +158,7 @@
 
     <!-- Desni oglas -->
     <aside class="skyscraper lg:block">
-      <div class="sticky top-20 border border-slate-200 rounded-xl ad-box overflow-hidden">
+      <div class="sticky top-24 border border-slate-200 rounded-xl ad-box overflow-hidden">
         <a id="adRight" href="#" target="_blank" rel="noopener" class="block">
           <img id="adRightImg" src="https://picsum.photos/200/600?random=22" alt="Oglas" class="w-full h-auto" loading="lazy"/>
         </a>
@@ -182,7 +166,6 @@
     </aside>
   </div>
 
-  <!-- FOOTER -->
   <footer class="py-10 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
       <div>
@@ -212,32 +195,20 @@
     // Footer godina
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Oglasi: jednostavna rotacija svake 8s (zamijeni URL-ove i linkove po potrebi)
-    const adsLeft = [
-      { img:'https://picsum.photos/200/600?1', href:'#' },
-      { img:'https://picsum.photos/200/600?2', href:'#' },
-      { img:'https://picsum.photos/200/600?3', href:'#' },
-    ];
-    const adsRight = [
-      { img:'https://picsum.photos/200/600?4', href:'#' },
-      { img:'https://picsum.photos/200/600?5', href:'#' },
-      { img:'https://picsum.photos/200/600?6', href:'#' },
-    ];
-    let al = 0, ar = 0;
+    // Oglasi (dummy rotacija)
+    const adsLeft = [{img:'https://picsum.photos/200/600?1',href:'#'},{img:'https://picsum.photos/200/600?2',href:'#'},{img:'https://picsum.photos/200/600?3',href:'#'}];
+    const adsRight= [{img:'https://picsum.photos/200/600?4',href:'#'},{img:'https://picsum.photos/200/600?5',href:'#'},{img:'https://picsum.photos/200/600?6',href:'#'}];
+    let al=0,ar=0;
     function rotateAds(){
-      const L = adsLeft[al%adsLeft.length];
-      const R = adsRight[ar%adsRight.length];
-      const li = document.getElementById('adLeftImg');
-      const ri = document.getElementById('adRightImg');
-      const la = document.getElementById('adLeft');
-      const ra = document.getElementById('adRight');
-      if(li&&ri&&la&&ra){ li.src = L.img; la.href = L.href; ri.src = R.img; ra.href = R.href; }
+      const L=adsLeft[al%adsLeft.length], R=adsRight[ar%adsRight.length];
+      const li=document.getElementById('adLeftImg'), ri=document.getElementById('adRightImg');
+      const la=document.getElementById('adLeft'),   ra=document.getElementById('adRight');
+      if(li&&ri&&la&&ra){ li.src=L.img; la.href=L.href; ri.src=R.img; ra.href=R.href; }
       al++; ar++;
     }
-    setInterval(rotateAds, 8000);
+    setInterval(rotateAds,8000);
 
-    // NAJNOVIJE: Uredi NEWS ispod i samo dodaj objekte
-    // Minimalno: { title, image, tag, href, excerpt }
+    // NAJNOVIJE: uredi niz NEWS
     const NEWS = [
       { title:'Nogomet: derbi vikenda', image:'https://images.unsplash.com/photo-1508085462391-a77767e6f82f?q=80&w=1200&auto=format&fit=crop', tag:'Nogomet', href:'/nogomet.html', excerpt:'Taktička analiza i ključni trenuci.' },
       { title:'Prehrana: proteini 101', image:'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=1200&auto=format&fit=crop', tag:'Prehrana', href:'/prehrana.html', excerpt:'Koliko dnevno i kada ih uzimati.' },
@@ -246,23 +217,17 @@
       { title:'Tenis: ljeto turniri', image:'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop', tag:'Tenis', href:'/tenis.html', excerpt:'Pregled rezultata i poretka.' },
       { title:'Lifestyle: jutarnje rutine', image:'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop', tag:'Lifestyle', href:'/lifestyle.html', excerpt:'Početak dana s više energije.' }
     ];
-
     const grid = document.getElementById('news-grid');
-    function newsCard(item){
-      return `
-<article class="card border border-slate-200 rounded-2xl overflow-hidden bg-white">
-  <a href="${item.href}" class="block">
-    <img loading="lazy" src="${item.image}" alt="" class="w-full object-cover aspect-[16/9]"/>
-  </a>
-  <div class="p-4">
-    <span class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">${item.tag||''}</span>
-    <h3 class="mt-2 font-bold text-lg leading-snug"><a href="${item.href}" class="hover:underline">${item.title}</a></h3>
-    ${item.excerpt?`<p class="mt-1 text-sm text-slate-600">${item.excerpt}</p>`:''}
-  </div>
-</article>`;
-    }
-    function renderNews(){ grid.innerHTML = NEWS.map(newsCard).join(''); }
-    renderNews();
+    grid.innerHTML = NEWS.map(item => `
+      <article class="card border border-slate-200 rounded-2xl overflow-hidden bg-white">
+        <a href="${item.href}" class="block"><img loading="lazy" src="${item.image}" alt="" class="w-full object-cover aspect-[16/9]"/></a>
+        <div class="p-4">
+          <span class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">${item.tag||''}</span>
+          <h3 class="mt-2 font-bold text-lg leading-snug"><a href="${item.href}" class="hover:underline">${item.title}</a></h3>
+          ${item.excerpt?`<p class="mt-1 text-sm text-slate-600">${item.excerpt}</p>`:''}
+        </div>
+      </article>
+    `).join('');
   </script>
 </body>
 </html>
